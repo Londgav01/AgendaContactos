@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorInput?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Sphere?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="669.0" prefWidth="905.0" style="-fx-border-radius: 10;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uniquindio.agenda.controllers.AgendaController">
+   <children>
+      <Sphere layoutX="50.0" layoutY="611.0" radius="50">
+         <effect>
+            <ColorInput paint="#0000d1" />
+         </effect>
+      </Sphere>
+      <Sphere layoutX="128.0" layoutY="611.0" radius="50" />
+      <Sphere layoutX="207.0" layoutY="611.0" radius="50" />
+      <Sphere layoutX="286.0" layoutY="611.0" radius="50" />
+      <Sphere layoutX="361.0" layoutY="611.0" radius="50" />
+      <Sphere layoutX="439.0" layoutY="611.0" radius="50" />
+      <Sphere layoutX="525.0" layoutY="611.0" radius="50" />
+      <Sphere layoutX="608.0" layoutY="611.0" radius="50" />
+      <AnchorPane layoutX="4.0" layoutY="5.0" prefHeight="548.0" prefWidth="894.0" style="-fx-border-color: #0000d1; -fx-border-radius: 10;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Text fill="#0005a4" fontSmoothingType="LCD" layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AGENDA DE CONTACTOS" wrappingWidth="350.4516296386719">
+               <font>
+                  <Font name="Cooper Black" size="25.0" />
+               </font>
+            </Text>
+            <TabPane layoutX="14.0" layoutY="63.0" prefHeight="474.0" prefWidth="870.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Contactos">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="403.0" style="-fx-border-color: #2f16ed;">
+                           <children>
+                              <TableView fx:id="tabla" layoutX="10.0" layoutY="16.0" prefHeight="422.0" prefWidth="851.0">
+                                <columns>
+                                  <TableColumn fx:id="nombres" prefWidth="112.00000381469727" text="Nombre" />
+                                  <TableColumn fx:id="alias" prefWidth="96.79998779296875" text="Alias" />
+                                    <TableColumn fx:id="direcciones" prefWidth="133.6000213623047" text="Direccion" />
+                                    <TableColumn fx:id="telefonos" prefWidth="108.0" text="Telefono" />
+                                    <TableColumn fx:id="mails" prefWidth="143.20001220703125" text="Mail" />
+                                    <TableColumn fx:id="grupos" prefWidth="115.19989013671875" text="Grupos" />
+                                    <TableColumn fx:id="reuniones" prefWidth="139.2000732421875" text="Reuniones" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Nuevo Contacto">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: #250fe8;">
+                           <children>
+                              <Button fx:id="botonAdd" layoutX="706.0" layoutY="210.0" mnemonicParsing="false" onAction="#agregarNuevoContacto" text="Agregar">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font></Button>
+                              <Label layoutX="57.0" layoutY="28.0" text="Nombre" />
+                              <Label layoutX="335.0" layoutY="28.0" text="Alias" />
+                              <Label layoutX="609.0" layoutY="28.0" text="Direccion" />
+                              <Label layoutX="62.0" layoutY="114.0" text="Mail" />
+                              <Label layoutX="336.0" layoutY="114.0" text="Telefono" />
+                              <Label layoutX="612.0" layoutY="114.0" text="Reunion" />
+                              <Label layoutX="62.0" layoutY="190.0" text="Grupo" />
+                              <TextField fx:id="nuevoNombreC" layoutX="57.0" layoutY="53.0" />
+                              <TextField fx:id="nuevoAliasC" layoutX="335.0" layoutY="53.0" />
+                              <TextField fx:id="nuevaDireccionC" layoutX="609.0" layoutY="53.0" />
+                              <TextField fx:id="nuevoMailC" layoutX="57.0" layoutY="137.0" />
+                              <TextField fx:id="nuevoTelC" layoutX="335.0" layoutY="137.0" />
+                              <ComboBox fx:id="nuevaReunionC" layoutX="608.0" layoutY="137.0" prefWidth="150.0" />
+                              <ComboBox fx:id="nuevoGrupoC" layoutX="56.0" layoutY="210.0" prefWidth="150.0" />
+                              <Separator layoutX="1.0" layoutY="250.0" prefHeight="0.0" prefWidth="870.0" style="-fx-background-color: blue;" />
+                              <AnchorPane layoutX="1.0" layoutY="255.0" prefHeight="188.0" prefWidth="330.0">
+                                 <children>
+                                    <Button fx:id="eliminarContacto" layoutX="245.0" layoutY="148.0" mnemonicParsing="false" onAction="#eliminarContacto" text="Eliminar">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <ChoiceBox fx:id="contactosEliminar" layoutX="25.0" layoutY="81.0" prefWidth="150.0" />
+                                    <Label layoutX="25.0" layoutY="25.0" text="Eliminar Contacto" textFill="#091099">
+                                       <font>
+                                          <Font name="Cooper Black" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="352.0" layoutY="253.0" prefHeight="188.0" prefWidth="517.0">
+                                 <children>
+                                    <Button fx:id="botonAddGrupos" layoutX="398.0" layoutY="123.0" mnemonicParsing="false" onAction="#addNuevoGruposToContact" text="Agregar" />
+                                    <Button fx:id="botonAgregarReu" layoutX="229.0" layoutY="123.0" mnemonicParsing="false" onAction="#AgregarOtraReunion" text="Agregar" />
+                                    <Label layoutX="22.0" layoutY="14.0" text="Agregar más grupos o reuniones" textFill="#091099">
+                                       <font>
+                                          <Font name="Cooper Black" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="addReuniones" layoutX="177.0" layoutY="81.0" prefWidth="150.0" />
+                                    <ChoiceBox fx:id="addGrupos" layoutX="353.0" layoutY="81.0" prefWidth="150.0" />
+                                    <Label layoutX="177.0" layoutY="57.0" text="Reuniones" />
+                                    <Label layoutX="353.0" layoutY="57.0" text="Grupos" />
+                                    <ComboBox fx:id="listaContAdd" layoutX="14.0" layoutY="81.0" prefWidth="150.0" />
+                                    <Text layoutX="22.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Escoja el contacto al que quiere agregar" wrappingWidth="117.02389526367188" />
+                                 </children>
+                              </AnchorPane>
+                              <Separator layoutX="344.0" layoutY="251.0" orientation="VERTICAL" prefHeight="192.0" prefWidth="6.0" style="-fx-background-color: blue;" />
+                              <Button fx:id="BotonActualizar" layoutX="586.0" layoutY="210.0" mnemonicParsing="false" onAction="#actualizarContacto" text="Actualizar">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Reunion">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="446.0" prefWidth="684.0">
+                           <children>
+                              <Button layoutX="310.0" layoutY="210.0" mnemonicParsing="false" text="Crear" />
+                              <Label layoutX="29.0" layoutY="32.0" text="Nombre" />
+                              <Label layoutX="218.0" layoutY="32.0" text="Descripcion" />
+                              <Label layoutX="38.0" layoutY="125.0" text="Hora" />
+                              <Label layoutX="421.0" layoutY="23.0" text="Agregar Contacto a Reunion">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="592.0" layoutY="167.0" mnemonicParsing="false" text="Agregar" />
+                              <ChoiceBox layoutX="420.0" layoutY="89.0" prefWidth="150.0" />
+                              <ChoiceBox layoutX="29.0" layoutY="348.0" prefWidth="150.0" />
+                              <Button layoutX="303.0" layoutY="348.0" mnemonicParsing="false" text="Eliminar" />
+                              <Label layoutX="29.0" layoutY="309.0" text="Eliminar Reunion">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="233.0" layoutY="125.0" text="Fecha" />
+                              <Separator layoutX="10.0" layoutY="250.0" prefHeight="0.0" prefWidth="870.0" />
+                              <Separator layoutX="385.0" layoutY="5.0" orientation="VERTICAL" prefHeight="440.0" prefWidth="4.0" />
+                              <TextField layoutX="30.0" layoutY="63.0" />
+                              <TextField layoutX="30.0" layoutY="154.0" />
+                              <TextField layoutX="220.0" layoutY="63.0" />
+                              <TextField layoutX="221.0" layoutY="154.0" />
+                              <ComboBox layoutX="636.0" layoutY="89.0" prefWidth="150.0" />
+                              <Label layoutX="421.0" layoutY="67.0" text="Reunion" />
+                              <Label layoutX="636.0" layoutY="67.0" text="Contacto" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Grupos">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Separator layoutY="224.0" prefHeight="0.0" prefWidth="870.0" />
+                              <Label layoutX="23.0" layoutY="14.0" text="Nombre" />
+                              <Label layoutX="19.0" layoutY="120.0" text="Categoria" />
+                              <Separator layoutX="292.0" orientation="VERTICAL" prefHeight="454.0" prefWidth="7.0" />
+                              <TextField layoutX="14.0" layoutY="49.0" />
+                              <ChoiceBox layoutX="14.0" layoutY="151.0" prefWidth="150.0" />
+                              <Button layoutX="207.0" layoutY="97.0" mnemonicParsing="false" text="Crear" />
+                              <Button layoutX="539.0" layoutY="139.0" mnemonicParsing="false" text="Eliminar Contacto" />
+                              <ChoiceBox layoutX="311.0" layoutY="49.0" prefWidth="150.0" />
+                              <ChoiceBox layoutX="311.0" layoutY="139.0" prefWidth="150.0" />
+                              <Button layoutX="512.0" layoutY="49.0" mnemonicParsing="false" text="Buscar Contactos del Grupo" />
+                              <Label layoutX="311.0" layoutY="23.0" text="Grupo" />
+                              <Label layoutX="311.0" layoutY="114.0" text="Contacto" />
+                              <Label layoutX="18.0" layoutY="252.0" text="Elimiar Grupo">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox layoutX="14.0" layoutY="312.0" prefWidth="150.0" />
+                              <Button layoutX="226.0" layoutY="398.0" mnemonicParsing="false" text="Eliminar" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+      <Sphere layoutX="696.0" layoutY="611.0" radius="50" />
+      <Sphere layoutX="780.0" layoutY="611.0" radius="50" />
+      <Sphere layoutX="855.0" layoutY="611.0" radius="50" />
+   </children>
+</AnchorPane>
